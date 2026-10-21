@@ -1,5 +1,9 @@
 import Foundation
 
+/// What can go wrong when validating a shift before it is stored.
+///
+/// `endNotAfterStart` means the end date is not strictly after the start date;
+/// the other cases are caught before that check runs.
 public enum ShiftValidationError: Error, Equatable, Sendable {
     case endNotAfterStart
     case shiftTooLong(maxHours: Double)
