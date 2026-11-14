@@ -1,5 +1,11 @@
 import Foundation
 
+/// What can go wrong when posting, claiming, or cancelling a swap.
+///
+/// `shiftAlreadyStarted` is thrown both when posting a shift that already
+/// started and when claiming a post whose shift has since started;
+/// `alreadyHasOpenPost` guards against double-posting the same shift, and
+/// `cannotClaimOwnPost` keeps owners from claiming their own post.
 public enum SwapError: Error, Equatable, Sendable {
     case shiftAlreadyStarted
     case alreadyHasOpenPost
